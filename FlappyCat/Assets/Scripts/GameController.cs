@@ -6,16 +6,20 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-
     public GameObject GameOverText;
     public bool GameOver = false;
+    public float ScrollSpeed = -1.5f;
+
 
     // Awake is called before any Start
     void Awake()
     {
-        if (instance == null) {
+        if (instance == null)
+        {
             instance = this;
-        } else if (instance != this) {
+        }
+        else if (instance != this)
+        {
             Destroy(gameObject);
         }
     }
@@ -23,7 +27,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameOver && Input.GetMouseButtonDown(0)) {
+        if (GameOver && Input.GetMouseButtonDown(0))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

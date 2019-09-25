@@ -34,6 +34,7 @@ public class Cat : MonoBehaviour
     // checks if the cat is dead.
     void OnCollisionEnter2D()
     {
+        rb2d.velocity = Vector2.zero;
         isDead = true;
         anim.SetTrigger("Die");
         GameController.instance.CatDied();
