@@ -24,9 +24,10 @@ public class RepeatingBackground : MonoBehaviour
         }
     }
 
+    // moves the background
     private void RepositionBackground()
     {
-        Vector2 groundOffset = new Vector2(GroundHorizontalLength * 2f, 0);
+        Vector2 groundOffset = new Vector2(GroundHorizontalLength * GameController.instance.GetNumberOfBackgrounds(), 0);
         transform.position = (Vector2)transform.position + groundOffset;
     }
 

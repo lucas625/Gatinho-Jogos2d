@@ -15,11 +15,15 @@ public class Cat : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        rb2d.Sleep();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameController.instance.IsStarted()) {
+            StartMoving();
+        }
         if (!isDead)
         {
             if (Input.GetMouseButtonDown(0))
@@ -38,6 +42,12 @@ public class Cat : MonoBehaviour
         isDead = true;
         anim.SetTrigger("Die");
         GameController.instance.CatDied();
+    }
+
+    // Starts the rigidbody
+    public void StartMoving()
+    {
+        rb2d.WakeUp();
     }
 
 }
