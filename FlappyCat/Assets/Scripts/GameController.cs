@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     private float DefaultScroolSpeed = -1.5f;
     private int NumberOfBackgrounds; // used to dinamically set the number of backgrounds 
 
+    private int Score = 0;
+
     // Awake is called before any Start
     void Awake()
     {
@@ -56,6 +58,7 @@ public class GameController : MonoBehaviour
         ScoreText.SetActive(true);
         ScrollSpeed = DefaultScroolSpeed;
         GameStarted = true;
+        Score = 0;
     }
 
     // checks if the game has started
@@ -73,6 +76,15 @@ public class GameController : MonoBehaviour
     // getter for number of backgroudnds
     public int GetNumberOfBackgrounds() {
         return NumberOfBackgrounds;
+    }
+
+    public void Scored()
+    {
+        if (GameOver) {
+            return;
+        }
+        Score++;
+        ScoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + Score.ToString();
     }
 
 }
