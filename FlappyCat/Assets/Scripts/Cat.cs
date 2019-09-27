@@ -26,34 +26,37 @@ public class Cat : MonoBehaviour
         }
         if (!isDead)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
+            if (rb2d.transform.position.y < 4.8) {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    rb2d.velocity = Vector2.zero;
+                    rb2d.AddForce(new Vector2(0, upForce));
+                    anim.SetTrigger("Flap");
+                }
+            } else {
                 rb2d.velocity = Vector2.zero;
-                rb2d.AddForce(new Vector2(0, upForce));
-                anim.SetTrigger("Flap");
             }
         }
     }
 
     // checks if the cat is dead.
-    void OnCollisionEnter2D(Collider2D other)
+    void OnCollisionEnter2D()
     {
-        if (other.name == "SkyBound") {
-            rb2d.velocity = Vector2.zero;
-            
-        } else {
-            rb2d.velocity = Vector2.zero;
-            isDead = true;
-            anim.SetTrigger("Die");
-            GameController.instance.CatDied();
-        }
-        
+        rb2d.velocity = Vector2.zero;
+        isDead = true;
+        anim.SetTrigger("Die");
+        GameController.instance.CatDied();
     }
 
     // Starts the rigidbody
     public void StartMoving()
     {
         rb2d.WakeUp();
+    }
+
+    public void ResetSpeed()
+    {
+        rb2d.velocity = Vector2.zero;
     }
 
 }
