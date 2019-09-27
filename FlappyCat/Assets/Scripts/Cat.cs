@@ -36,12 +36,18 @@ public class Cat : MonoBehaviour
     }
 
     // checks if the cat is dead.
-    void OnCollisionEnter2D()
+    void OnCollisionEnter2D(Collider2D other)
     {
-        rb2d.velocity = Vector2.zero;
-        isDead = true;
-        anim.SetTrigger("Die");
-        GameController.instance.CatDied();
+        if (other.name == "SkyBound") {
+            rb2d.velocity = Vector2.zero;
+            
+        } else {
+            rb2d.velocity = Vector2.zero;
+            isDead = true;
+            anim.SetTrigger("Die");
+            GameController.instance.CatDied();
+        }
+        
     }
 
     // Starts the rigidbody
