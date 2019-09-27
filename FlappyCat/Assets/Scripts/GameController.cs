@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 public class GameController : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         NumberOfBackgrounds = Scenery.transform.childCount;
+    }
+
+    void Start() {
+        GameAnalytics.Initialize();
     }
 
     // Update is called once per frame
