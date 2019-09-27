@@ -977,10 +977,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b00df0d4a5aa3dc4fad9ce82aafbaa90, type: 3}
-    m_FontSize: 28
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1072,7 +1072,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b00df0d4a5aa3dc4fad9ce82aafbaa90, type: 3}
-    m_FontSize: 28
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1371,7 +1371,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b00df0d4a5aa3dc4fad9ce82aafbaa90, type: 3}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1709,6 +1709,7 @@ GameObject:
   - component: {fileID: 1862337308}
   - component: {fileID: 1862337307}
   - component: {fileID: 1862337309}
+  - component: {fileID: 1862337310}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1766,6 +1767,18 @@ MonoBehaviour:
   SpawnRate: 4
   ColumnMin: -3
   ColumnMax: 3
+--- !u!114 &1862337310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862337306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab89bfdb9a37cf4eb8f10509ad0671b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907094644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,7 +1935,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b00df0d4a5aa3dc4fad9ce82aafbaa90, type: 3}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
