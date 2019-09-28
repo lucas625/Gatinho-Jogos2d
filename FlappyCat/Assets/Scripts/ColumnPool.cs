@@ -32,17 +32,21 @@ public class ColumnPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeSinceLastSpawned += Time.deltaTime;
-        if (GameController.instance.ScrollSpeed < 0) {
-            SpawnRate = 6f / (-1f * GameController.instance.ScrollSpeed);
-        }
-        if ((!GameController.instance.GameOver) && TimeSinceLastSpawned >= (int)SpawnRate)
+        if(GameController.instance.IsStarted()) 
         {
-            TimeSinceLastSpawned = 0;
-            float SpamnYPosition = Random.Range(ColumnMin, ColumnMax);
-            Columns[CurrentColumn].transform.position = new Vector2(SpamnXPosition, SpamnYPosition);
-            CurrentColumn = (CurrentColumn + 1) % ColumnPoolSize;
+            TimeSinceLastSpawned += Time.deltaTime;
+            if (GameController.instance.ScrollSpeed < 0) {
+                SpawnRate = 6f / (-1f * GameController.instance.ScrollSpeed);
+            }
+            if ((!GameController.instance.GameOver) && TimeSinceLastSpawned >= (int)SpawnRate)
+            {
+                TimeSinceLastSpawned = 0;
+                float SpamnYPosition = Random.Range(ColumnMin, ColumnMax);
+                Columns[CurrentColumn].transform.position = new Vector2(SpamnXPosition, SpamnYPosition);
+                CurrentColumn = (CurrentColumn + 1) % ColumnPoolSize;
+            }
         }
+        
 
     }
 }
