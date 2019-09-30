@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cat : MonoBehaviour
 {
 
-    public float upForce = 200;
+    public float upForce = 150;
     private bool isDead = false;
     private Rigidbody2D rb2d;
     private Animator anim;
@@ -32,7 +32,7 @@ public class Cat : MonoBehaviour
                 Paused = true;
             }
         }
-        if (!isDead)
+        if (!isDead && !Paused)
         {
             if (rb2d.transform.position.y < 4.8) {
                 if (Input.GetMouseButtonDown(0))

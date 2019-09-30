@@ -125,8 +125,6 @@ public class GameController : MonoBehaviour
             Paused = true;
             DefaultScroolSpeed = ScrollSpeed;
             ScrollSpeed = 0;
-            ScoreText.SetActive(false);
-            TimerText.SetActive(false);
         }
     }
 
@@ -134,8 +132,6 @@ public class GameController : MonoBehaviour
         if (IsStarted() && Paused && (!GameOver)) {
             Paused = false;
             ScrollSpeed = DefaultScroolSpeed;
-            ScoreText.SetActive(true);
-            TimerText.SetActive(true);
         }
     }
 

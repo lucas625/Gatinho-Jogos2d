@@ -32,7 +32,7 @@ public class ColumnPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameController.instance.IsStarted()) 
+        if(GameController.instance.IsStarted() && (!GameController.instance.IsPaused())) 
         {
             TimeSinceLastSpawned += Time.deltaTime;
             if (GameController.instance.ScrollSpeed < 0) {
