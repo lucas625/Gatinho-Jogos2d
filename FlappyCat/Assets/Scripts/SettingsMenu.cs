@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public GameObject SettingsButton;
+    public GameObject PauseButton;
     public void PauseButtonPress() {
         if (GameController.instance.IsPaused()) {
             GameController.instance.UnPause();
