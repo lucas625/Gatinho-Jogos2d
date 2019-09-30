@@ -13,11 +13,14 @@ public class GameController : MonoBehaviour
     public GameObject TimerText;
     public GameObject Scenery;
 
+    public int ScoreAdd = 10; // the points per score
+
     private float CurrentTimeS, CurrentTimeM, CurrentTimeH = 0f;
 
     public bool GameOver = false;
     private bool GameStarted = false;
     public float ScrollSpeed = 0;
+    private float TimeSinceLastSpeedUp = 0f;
     private float DefaultScroolSpeed = -1.5f;
     private int NumberOfBackgrounds; // used to dinamically set the number of backgrounds 
 
@@ -57,8 +60,19 @@ public class GameController : MonoBehaviour
 
         if (IsStarted() && (!Paused) && (!GameOver)) {
             AttTime();
+            CheckSpeedUp();
         }
 
+    }
+
+    private void CheckSpeedUp() {
+        TimeSinceLastSpeedUp += Time.deltaTime;
+        int interval = 5;
+        if (TimeSinceLastSpeedUp >= interval) {
+            TimeSinceLastSpeedUp -= interval;
+            DefaultScroolSpeed = DefaultScroolSpeed * 1.05f;
+            ScrollSpeed = DefaultScroolSpeed;
+        }
     }
 
     private void AttTime() {
@@ -112,7 +126,7 @@ public class GameController : MonoBehaviour
         if (GameOver) {
             return;
         }
-        Score++;
+        Score += ScoreAdd;
         ScoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + Score.ToString();
     }
 

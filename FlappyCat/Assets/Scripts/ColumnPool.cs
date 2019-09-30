@@ -13,7 +13,7 @@ public class ColumnPool : MonoBehaviour
     private float TimeSinceLastSpawned; // used to move the columns
 
     // values for the column position
-    private float SpamnXPosition = 20f;
+    private float SpamnXPosition = 30f;
     public float ColumnMin = -3f;
     public float ColumnMax = 3f;
     private int CurrentColumn = 0;
@@ -35,11 +35,9 @@ public class ColumnPool : MonoBehaviour
         if(GameController.instance.IsStarted() && (!GameController.instance.IsPaused())) 
         {
             TimeSinceLastSpawned += Time.deltaTime;
-            if (GameController.instance.ScrollSpeed < 0) {
-                SpawnRate = 6f / (-1f * GameController.instance.ScrollSpeed);
-            }
             if ((!GameController.instance.GameOver) && TimeSinceLastSpawned >= (int)SpawnRate)
             {
+                SpawnRate = Random.Range(2, 4);
                 TimeSinceLastSpawned = 0;
                 float SpamnYPosition = Random.Range(ColumnMin, ColumnMax);
                 Columns[CurrentColumn].transform.position = new Vector2(SpamnXPosition, SpamnYPosition);
