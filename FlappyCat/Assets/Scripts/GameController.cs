@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     private bool GameStarted = false;
     public float ScrollSpeed = 0;
     private float TimeSinceLastSpeedUp = 0f;
-    private float DefaultScroolSpeed = -1.5f;
+    private float DefaultScroolSpeed = -2f;
     private int NumberOfBackgrounds; // used to dinamically set the number of backgrounds 
 
     private int Score = 0;
@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
         int interval = 5;
         if (TimeSinceLastSpeedUp >= interval) {
             TimeSinceLastSpeedUp -= interval;
-            DefaultScroolSpeed = DefaultScroolSpeed * 1.05f;
+            DefaultScroolSpeed = DefaultScroolSpeed * 1.075f;
             ScrollSpeed = DefaultScroolSpeed;
         }
     }
