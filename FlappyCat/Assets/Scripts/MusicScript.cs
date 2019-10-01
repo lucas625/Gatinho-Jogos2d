@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-    private float MusicVol = 0.1f;
+    private float MusicVol = 0.25f;
     private float VolChange = 0.1f;
     public AudioClip MusicClip;
 

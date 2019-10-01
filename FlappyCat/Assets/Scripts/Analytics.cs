@@ -5,8 +5,7 @@ using GameAnalyticsSDK;
 
 public class Analytics : MonoBehaviour
 {
-    // Calls the start of the game analytics
-    void Start() {
+    void Awake() {
         GameAnalytics.Initialize();
     }
 }
