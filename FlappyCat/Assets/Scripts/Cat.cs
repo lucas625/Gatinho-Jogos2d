@@ -5,10 +5,11 @@ using UnityEngine;
 public class Cat : MonoBehaviour
 {
 
-    public float upForce = 200;
+    public float upForce = 150;
     private bool isDead = false;
     private Rigidbody2D rb2d;
     private Animator anim;
+    private bool Paused = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,16 @@ public class Cat : MonoBehaviour
     void Update()
     {
         if (GameController.instance.IsStarted()) {
-            StartMoving();
+            if((!GameController.instance.IsPaused()) && Paused) {
+                StartMoving();
+                Paused = false;
+            }
+            if(GameController.instance.IsPaused() && (!Paused)) {
+                rb2d.Sleep();
+                Paused = true;
+            }
         }
-        if (!isDead)
+        if (!isDead && !Paused)
         {
             if (rb2d.transform.position.y < 4.8) {
                 if (Input.GetMouseButtonDown(0))
